@@ -1,0 +1,23 @@
+## Author Maria Gabriela Junqueira
+## Function for calculate optimum for diatom species
+
+calculate_uk <- function(yik, xi) {
+  # yik: vetor de abundância relativa da espécie k for each sample
+  # xi: vetor de valores do parâmetro ambiental for each sample
+  
+  # Check if vectors have the same length
+  if (length(yik) != length(xi)) {
+    stop("The vectors yik and xi must have the same length.")
+  }
+  
+  # Calculate the numerator: Σ(yik * xi)
+  numerator <- sum(yik * xi)
+  
+  # Calculate the denominator: Σ(yik)
+  denominator <- sum(yik)
+  
+  # Calculate optimum
+  uk <- numerator / denominator
+  
+  return(uk)
+}
